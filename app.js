@@ -6,19 +6,27 @@
 //   document.bmiform.bmi.value = bmi;
 // }
 async function calcBMI(height, weight) {
-  const response = await fetch('https://s6hf1cruj8.execute-api.us-east-1.amazonaws.com/dev/healthcalc',
+
+
+  // https://t9au549wr2.execute-api.us-east-1.amazonaws.com/dev/
+  // https://s6hf1cruj8.execute-api.us-east-1.amazonaws.com/dev/healthcalc
+  //         "Content-Type": "application/json",
+  // "Access-Control-Allow-Headers": "Content-Type",
+  // "Access-Control-Allow-Origin": "*", // Allow all origins
+
+        // "Access-Control-Allow-Methods": "GET",
+  const response = await fetch('https://t9au549wr2.execute-api.us-east-1.amazonaws.com/dev/?height=50&weight=178',
     {
       method: 'GET',
-      mode: 'no-cors',
       headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*", // Allow all origins
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+         "Accept": "application/json"
       }
     });
-  const data = await response;
-  console.log (data);
+  const raw = await response;
+  console.log('Raw data is: ', raw);
+  const data = await response.json();
+  console.log('Returned data is: ', data);
+  // const data = await response.json();
   // document.getElementById('message').innerText = data.message;
-  document.bmiform.bmi.value = data.message;
+  document.bmiform.bmi.value = data.result;
 }
