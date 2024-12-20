@@ -1,37 +1,47 @@
 <html>
-  <head>
+
+<head>
     <title>BMI</title>
     <script src="app.js"></script>
     <link rel="stylesheet" href="style.css">
-  </head>
+</head>
 
-<body> 
+<body>
     <h1>BMICalculator</h1>
     <div>
-        <p id="intro">Calculate your BMI (body mass index) by using the form below. Enter your weight and height and click the Calculate button to display your BMI result.
-        
-Underweight: BMI is less than 18.5  
-Normal weight: BMI is 18.5 to 24.9  
-Overweight: BMI is 25 to 29.9  
-Obese: BMI is 30 or more</p>
-        
+        <p id="intro">Calculate your BMI (body mass index) by using the form below. Enter your weight and height and
+            click the Calculate button to display your BMI result.
+
+            Underweight: BMI is less than 18.5
+            Normal weight: BMI is 18.5 to 24.9
+            Overweight: BMI is 25 to 29.9
+            Obese: BMI is 30 or more</p>
+
         <form action="none" method="post" name="bmiform">
             <fieldset>
-            <legend>Height and Weight</legend>
+                <legend>Height and Weight</legend>
                 <label for="pounds">Weight (pounds):</label>
                 <input type="text" name="pounds" id="pounds">
                 <br>
                 <label for="inches">Height (inches):</label>
                 <input type="text" name="inches" id="inches">
                 <br>
-                <button type="button" name="calculate" value="Calculate your BMI" onclick="calcBMI(document.bmiform.inches.value,document.bmiform.pounds.value)">Calculate your BMI</button>
+                <button type="button" name="calculate" value="Calculate your BMI"
+                    onclick="calcBMI(document.bmiform.inches.value,document.bmiform.pounds.value)">Calculate your
+                    BMI</button>
             </fieldset>
             <fieldset>
-            <legend>BMI</legend>
+                <legend>BMI</legend>
                 <label for="bmi" id="bmi_label">Your calculated BMI is:</label>
                 <input type="text" name="bmi" id="bmi" readonly="readonly">
+            </fieldset>
+            <fieldset>
+                <legend>Result</legend>
+                <label for="Status" id="status_label">You are </label>
+                <input type="text" name="status" id="status" readonly="readonly">
             </fieldset>
         </form>
     </div>
 </body>
+
 </html>
