@@ -15,13 +15,14 @@ async function calcBMI(height, weight) {
   // "Access-Control-Allow-Origin": "*", // Allow all origins
 
         // "Access-Control-Allow-Methods": "GET",
-  const response = await fetch('https://t9au549wr2.execute-api.us-east-1.amazonaws.com/dev/?height=50&weight=178',
-    {
-      method: 'GET',
-      headers: {
-         "Accept": "application/json"
-      }
-    });
+  const response = await fetch(`https://t9au549wr2.execute-api.us-east-1.amazonaws.com/dev/?height=${height}&weight=${weight}`,
+  {
+    method: 'GET',
+    headers: {
+        "Accept": "application/json"
+    }
+  });
+
   const raw = await response;
   console.log('Raw data is: ', raw);
   const data = await response.json();
